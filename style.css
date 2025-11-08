@@ -1,0 +1,102 @@
+* {
+    /*div, header, footer, main, nav*/
+    margin: 0;
+    padding:0;
+}
+div, header, footer, main, nav{
+    box-sizing: border-box;
+}
+body{    
+    margin-top: 5rem;
+    text-align: center;
+    font-family: "Elms Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 300;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: rgb(167, 62, 167);
+}
+/* nav-bar*/
+nav p {
+    margin-top: 2rem;
+    display: inline-block;
+    padding:0.7rem 5%;
+    font-weight: 500;
+
+}
+
+
+/* ABOUT */
+main{
+    padding: 2%;
+}
+img {
+    width: 100%;
+    height: auto;
+    max-height: 30rem;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.about-section {
+  text-align: center;
+
+}
+
+.about-image {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(70%);
+}
+
+.about-title {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 5em;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 0.8;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+}
+main p {
+    /*text-align: justify; */
+    font-size: 1.2em;
+    
+}
+.description{    
+    padding: 2% 25%;
+}
+
+
+
+
+/*Footer*/
+footer{
+    background-color: black;
+    padding: 2%;
+    font-size: 1.1em;
+}
+footer a, footer p{
+    color: white;
+    margin-left: 20px; 
+}
