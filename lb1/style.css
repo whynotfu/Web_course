@@ -27,10 +27,8 @@ nav p {
     display: inline-block;
     padding:0.7rem 5%;
     font-weight: 500;
-
+    font-size: 1.1rem;
 }
-
-
 /* ABOUT */
 main{
     padding: 2%;
@@ -44,9 +42,8 @@ img {
     display: block;
 }
 
-.about-section {
+.about-section{
   text-align: center;
-
 }
 
 .about-image {
@@ -87,9 +84,41 @@ main p {
     padding: 2% 25%;
 }
 
-
-
-
+.about-section ul,
+section ul {
+  text-align: left;            /* отключить центровку для списка */
+  list-style: disc;            /* тип маркера */
+  list-style-position: outside;
+  padding-left: 1.5rem;        /* место под маркер */
+  margin-left: 0;              /* по желанию */
+}
+table {
+    font-weight: 100;
+    font-size: 1.2em;
+    border-collapse: collapse;
+    width: 900px;
+    
+}
+th, td {
+    border: 1px solid #000;
+    padding: 8px 12px;
+    text-align: center;
+}
+.firstline_t th {
+    font-weight: 900;
+    background-color: #f0f0f0; /* необязательно, просто для визуального выделения */
+}
+.list_cent {
+    margin: 2rem;
+    position: relative;
+    display: inline-block;
+    font-size: 1.2em;
+}
+.table_structure {
+    margin: 2rem;
+    position: relative;
+    display: inline-block;
+}
 /*Footer*/
 footer{
     background-color: black;
