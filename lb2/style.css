@@ -1,0 +1,104 @@
+/* ================================
+   MENU PAGE STYLES (menu.css)
+   ================================ */
+
+/* Раздел меню */
+.menu-section {
+    margin: 2rem auto;
+    max-width: 1100px;
+}
+
+/* Заголовок раздела */
+.menu-section h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+/* Сетка блюд */
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Карточка блюда */
+.dish-card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    background-color: #ffffff;
+
+    /* Фикс дёргания */
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Изображение */
+.dish-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 35px;
+    display: block;
+}
+
+/* Цена */
+.dish-price {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* Название */
+.dish-name {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Вес */
+.dish-weight {
+    margin-top: auto;
+    color: #777777;
+}
+
+/* Кнопка */
+.dish-add {
+    margin-top: 0.6rem;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f1eee9;
+    cursor: pointer;
+    align-self: stretch;
+}
+
+/* Hover */
+.dish-card:hover {
+    border-color: rgb(167, 62, 167);;
+}
+
+.dish-card:hover .dish-add {
+    background-color:rgb(167, 62, 167);
+    color: #ffffff;
+}
+
+/* Адаптивность: ≤800px */
+@media (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .menu-section h2 {
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+}
