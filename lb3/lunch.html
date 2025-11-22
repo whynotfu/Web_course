@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../lb2/style.css">
     <link rel="stylesheet" href="../lb1/style.css">
 
 
@@ -119,6 +120,114 @@
                 </div>
             </div>
         </section>
+        <section class="order-section">
+    <h1>Create an order</h1>
+
+    <form class="order-form" action="https://httpbin.org/post" method="post">
+        <div class="order-columns">
+
+            <!-- Блок с заказом клиента -->
+            <div class="order-block order-items">
+                <h2>Order details</h2>
+
+                <div class="order-field">
+                    <label for="soup-select">Soup</label>
+                    <select id="soup-select" name="soup" required>
+                        <option value="" disabled selected>Choose soup</option>
+                        <option value="chicken_noodle">Chicken soup with noodles</option>
+                        <option value="borsh">Classic borsh with sour cream</option>
+                        <option value="vegetable_lentil">Vegetable soup with lentils and herbs</option>
+                    </select>
+                </div>
+
+                <div class="order-field">
+                    <label for="main-select">Main course</label>
+                    <select id="main-select" name="main_course" required>
+                        <option value="" disabled selected>Choose main course</option>
+                        <option value="grilled_chicken_rice">Grilled chicken with vegetables and rice</option>
+                        <option value="baked_salmon_puree">Baked salmon with potato puree</option>
+                        <option value="vegetable_curry_chickpeas">Vegetable curry with chickpeas and rice</option>
+                    </select>
+                </div>
+
+                <div class="order-field">
+                    <label for="drink-select">Drink</label>
+                    <select id="drink-select" name="drink" required>
+                        <option value="" disabled selected>Choose drink</option>
+                        <option value="cranberry_morse">Homemade cranberry drink</option>
+                        <option value="citrus_lemonade">Citrus lemonade with mint</option>
+                        <option value="americano_milk">Americano with milk</option>
+                    </select>
+                </div>
+
+                <div class="order-field">
+                    <label for="comment">Comment</label>
+                    <textarea id="comment" name="comment" rows="4" placeholder="Any preferences or notes"></textarea>
+                </div>
+            </div>
+
+            <!-- Блок с данными клиента -->
+            <div class="order-block order-client">
+                <h2>Customer information</h2>
+
+                <div class="order-field">
+                    <label for="client-name">Name</label>
+                    <input id="client-name" name="client_name" type="text" required>
+                </div>
+
+                <div class="order-field">
+                    <label for="client-email">Email</label>
+                    <input id="client-email" name="client_email" type="email" required>
+                </div>
+
+                <div class="order-field order-checkbox">
+                    <input id="subscribe" name="subscribe" type="checkbox" checked>
+                    <label for="subscribe">I agree to receive information (newsletter)</label>
+                </div>
+
+                <div class="order-field">
+                    <label for="client-phone">Phone</label>
+                    <input id="client-phone" name="client_phone" type="tel" required>
+                </div>
+
+                <div class="order-field">
+                    <label for="client-address">Address</label>
+                    <input id="client-address" name="client_address" type="text" required>
+                </div>
+
+                <fieldset class="order-field order-radio">
+                    <legend>Delivery time</legend>
+                    <div class="delivery-options">
+                        <div>
+                            <input id="delivery-asap" name="delivery_option" type="radio" value="asap" required>
+                            <label for="delivery-asap">As soon as possible</label>
+                        </div>
+                        <div>
+                            <input id="delivery-exact" name="delivery_option" type="radio" value="exact">
+                            <label for="delivery-exact">At specified time</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="order-field">
+                    <label for="delivery-time">Specify delivery time</label>
+                    <input id="delivery-time"
+                           name="delivery_time"
+                           type="time"
+                           min="07:00"
+                           max="23:00"
+                           step="300">
+                </div>
+
+                <div class="order-buttons">
+                    <button type="reset" class="btn-reset">Reset</button>
+                    <button type="submit" class="btn-submit">Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</section>
     </main>
 
     <footer>
