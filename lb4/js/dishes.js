@@ -56,5 +56,22 @@ const dishes = [
     category: "drink",
     count: "300 ml",
     image: "png/lemonade.jfif"
-  }
+  },
+ {
+  keyword: "veg_curry",
+  name: "Vegetable curry with chickpeas and rice",
+  price: 430,
+  category: "main",
+  count: "390 g",
+  image: "png/Vegetable.jfif"
+},
+{
+  keyword: "coffee",
+  name: "Americano with milk",
+  price: 160,
+  category: "drink",
+  count: "250 ml",
+  image: "png/Coffee.jfif"
+}
+
 ];
