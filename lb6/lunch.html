@@ -23,56 +23,68 @@
     <header>
         <h1>Food Construct</h1>
         <nav>
-                <p><a href=#about>About</a></p>
-                <p><a href="..\lb2\lunch.html"> Create an order</a></p>
-                <p><a href="order.html">Orders</a></p>
-                <p><a href="#contacts"> Contacts </a></p>
+            <p><a href=#about>About</a></p>
+            <p><a href="..\lb2\lunch.html"> Create an order</a></p>
+            <p><a href="order.html">Orders</a></p>
+            <p><a href="#contacts"> Contacts </a></p>
         </nav>
     </header>
 
     <main>
-        <section class="menu-section" data-category="soup">
-            <h2>Soups</h2>
+       <section class="menu-section" data-category="soup">
+          <h2>Soups</h2>
+            <div class="filters">
+                <button data-kind="fish">Fish</button>
+                <button data-kind="meat">Meat</button>
+                <button data-kind="veg">Vegetarian</button>
+            </div>
             <div class="dishes-grid"></div>
         </section>
-        <section class="menu-section" data-category="main">
-            <h2>Main courses</h2>
-            <div class="dishes-grid"></div>
-        </section>
+       <section class="menu-section" data-category="main">
+        <h2>Main courses</h2>
+            <div class="filters">
+            <button data-kind="fish">Fish</button>
+            <button data-kind="meat">Meat</button>
+            <button data-kind="veg">Vegetarian</button>
+        </div>
+        <div class="dishes-grid"></div>
+</section>
         <section class="menu-section" data-category="drink">
-            <h2>Drinks</h2>
+  <h2>Drinks</h2>
+
+  <div class="filters">
+    <button data-kind="cold">Cold</button>
+    <button data-kind="hot">Hot</button>
+  </div>
+
+  <div class="dishes-grid"></div>
+</section>
+
+        <section class="menu-section" data-category="salad">
+            <h2>Salads & Starters</h2>
+            <div class="filters">
+                <button data-kind="fish">Fish</button>
+                <button data-kind="meat">Meat</button>
+                <button data-kind="veg">Vegetarian</button>
+            </div>
             <div class="dishes-grid"></div>
         </section>
+        <section class="menu-section" data-category="dessert">
+            <h2>Desserts</h2>
+            <div class="filters">
+                <button data-kind="small">Small</button>
+                <button data-kind="medium">Medium</button>
+                <button data-kind="large">Large</button>
+            </div>
+            <div class="dishes-grid"></div>
+        </section>
+
         <section class="order-section">
         <h1>Create an order</h1>
 
     <form class="order-form" action="https://httpbin.org/post" method="post">
         <div class="order-columns">
-
-            <!-- Блок с заказом клиента -->
-            <div class="order-block order-items">
-                <h2>Your order</h2>
-                <div class="order-summary">
-                    <p class="empty">Nothing selected</p>
-                    <div class="category" data-category="soup">
-                        <h3>Soup</h3>
-                        <p class="value">Soup not selected</p>
-                    </div>
-                    <div class="category" data-category="main">
-                        <h3>Main course</h3>
-                        <p class="value">Main course not selected</p>
-                    </div>
-                    <div class="category" data-category="drink">
-                        <h3>Drink</h3>
-                        <p class="value">Drink not selected</p>
-                    </div>
-                    <div class="total hidden">
-                        <strong>Total:</strong> <span id="total-price">0</span> ₽
-                    </div>
-                </div>
-            </div>
-
-            <section class="lunch-options">
+<section class="lunch-options">
   <h2>Available lunch options</h2>
 
   <div class="lunch-grid">
@@ -128,6 +140,29 @@
     Desserts can be added to any lunch option
   </p>
 </section>
+
+            <!-- Блок с заказом клиента -->
+            <div class="order-block order-items">
+                <h2>Your order</h2>
+                <div class="order-summary">
+                    <p class="empty">Nothing selected</p>
+                    <div class="category" data-category="soup">
+                        <h3>Soup</h3>
+                        <p class="value">Soup not selected</p>
+                    </div>
+                    <div class="category" data-category="main">
+                        <h3>Main course</h3>
+                        <p class="value">Main course not selected</p>
+                    </div>
+                    <div class="category" data-category="drink">
+                        <h3>Drink</h3>
+                        <p class="value">Drink not selected</p>
+                    </div>
+                    <div class="total hidden">
+                        <strong>Total:</strong> <span id="total-price">0</span> ₽
+                    </div>
+                </div>
+            </div>
 
             <!-- Блок с данными клиента -->
             <div class="order-block order-client">
