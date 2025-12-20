@@ -1,9 +1,11 @@
 const dishes = [
+  // ===== SOUPS =====
   {
     keyword: "chicken_soup",
     name: "Chicken soup with noodles",
     price: 350,
     category: "soup",
+    kind: "meat",
     count: "350 g",
     image: "png/chickenSoop.jfif"
   },
@@ -12,6 +14,7 @@ const dishes = [
     name: "Classic borsh with sour cream",
     price: 360,
     category: "soup",
+    kind: "meat",
     count: "380 g",
     image: "png/borsh.jfif"
   },
@@ -20,15 +23,36 @@ const dishes = [
     name: "Vegetable soup with lentils and herbs",
     price: 320,
     category: "soup",
+    kind: "veg",
     count: "340 g",
     image: "png/Vegetablesoup.jfif"
   },
+  {
+    keyword: "fish_soup",
+    name: "Fish soup with vegetables",
+    price: 370,
+    category: "soup",
+    kind: "fish",
+    count: "360 g",
+    image: "png/fish_soup.jpg"
+  },
+  {
+    keyword: "cream_mushroom_soup",
+    name: "Creamy mushroom soup",
+    price: 330,
+    category: "soup",
+    kind: "veg",
+    count: "340 g",
+    image: "png/mushroom_soup.jpg"
+  },
 
+  // ===== MAIN COURSES =====
   {
     keyword: "chicken_rice",
     name: "Grilled chicken with vegetables and rice",
     price: 450,
     category: "main",
+    kind: "meat",
     count: "420 g",
     image: "png/Chickenrice.jfif"
   },
@@ -37,15 +61,83 @@ const dishes = [
     name: "Baked salmon with potato puree",
     price: 480,
     category: "main",
+    kind: "fish",
     count: "410 g",
     image: "png/fish.jfif"
   },
+  {
+    keyword: "veg_curry",
+    name: "Vegetable curry with chickpeas and rice",
+    price: 430,
+    category: "main",
+    kind: "veg",
+    count: "390 g",
+    image: "png/Vegetable.jfif"
+  },
+  {
+    keyword: "beef_steak",
+    name: "Beef steak with sauce",
+    price: 520,
+    category: "main",
+    kind: "meat",
+    count: "450 g",
+    image: "png/beef_steak.jpg"
+  },
+  {
+    keyword: "tofu_bowl",
+    name: "Tofu bowl with vegetables",
+    price: 410,
+    category: "main",
+    kind: "veg",
+    count: "400 g",
+    image: "png/tofu_bowl.jpg"
+  },
 
+  // ===== SALADS & STARTERS =====
+  {
+    keyword: "salmon_salad",
+    name: "Salmon salad",
+    price: 390,
+    category: "salad",
+    kind: "fish",
+    count: "220 g",
+    image: "png/salmon_salad.jpg"
+  },
+  {
+    keyword: "chicken_caesar",
+    name: "Caesar salad with chicken",
+    price: 360,
+    category: "salad",
+    kind: "meat",
+    count: "240 g",
+    image: "png/caesar.jpg"
+  },
+  {
+    keyword: "avocado_salad",
+    name: "Avocado salad",
+    price: 300,
+    category: "salad",
+    kind: "veg",
+    count: "210 g",
+    image: "png/avocado_salad.jpg"
+  },
+  {
+    keyword: "quinoa_salad",
+    name: "Quinoa vegetable salad",
+    price: 320,
+    category: "salad",
+    kind: "veg",
+    count: "230 g",
+    image: "png/quinoa_salad.jpg"
+  },
+
+  // ===== DRINKS =====
   {
     keyword: "morse",
     name: "Homemade cranberry drink",
     price: 120,
     category: "drink",
+    kind: "cold",
     count: "300 ml",
     image: "png/Morse.jfif"
   },
@@ -54,24 +146,73 @@ const dishes = [
     name: "Citrus lemonade with mint",
     price: 150,
     category: "drink",
+    kind: "cold",
     count: "300 ml",
     image: "png/lemonade.jfif"
   },
- {
-  keyword: "veg_curry",
-  name: "Vegetable curry with chickpeas and rice",
-  price: 430,
-  category: "main",
-  count: "390 g",
-  image: "png/Vegetable.jfif"
-},
-{
-  keyword: "coffee",
-  name: "Americano with milk",
-  price: 160,
-  category: "drink",
-  count: "250 ml",
-  image: "png/Coffee.jfif"
-}
+  {
+    keyword: "iced_tea",
+    name: "Iced tea with lemon",
+    price: 130,
+    category: "drink",
+    kind: "cold",
+    count: "300 ml",
+    image: "png/iced_tea.jpg"
+  },
+  {
+    keyword: "coffee",
+    name: "Americano with milk",
+    price: 160,
+    category: "drink",
+    kind: "hot",
+    count: "250 ml",
+    image: "png/Coffee.jfif"
+  },
+  {
+    keyword: "hot_chocolate",
+    name: "Hot chocolate",
+    price: 180,
+    category: "drink",
+    kind: "hot",
+    count: "250 ml",
+    image: "png/hot_chocolate.jpg"
+  },
 
+  // ===== DESSERTS =====
+  {
+    keyword: "brownie",
+    name: "Chocolate brownie",
+    price: 230,
+    category: "dessert",
+    kind: "small",
+    count: "90 g",
+    image: "png/brownie.jpg"
+  },
+  {
+    keyword: "cheesecake",
+    name: "Cheesecake",
+    price: 260,
+    category: "dessert",
+    kind: "medium",
+    count: "120 g",
+    image: "png/cheesecake.jpg"
+  },
+  {
+    keyword: "fruit_tart",
+    name: "Fruit tart",
+    price: 280,
+    category: "dessert",
+    kind: "medium",
+    count: "140 g",
+    image: "png/fruit_tart.jpg"
+  },
+  {
+    keyword: "big_cake",
+    name: "Big chocolate cake",
+    price: 520,
+    category: "dessert",
+    kind: "large",
+    count: "350 g",
+    image: "png/big_cake.jpg"
+  }
 ];
