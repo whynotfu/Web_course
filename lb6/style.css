@@ -174,9 +174,13 @@
 }
 
 .lunch-item img {
-  width: 90px;
-  transition: transform 0.3s ease;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 0.4rem;
 }
+
 
 .lunch-item img:hover {
   transform: translateY(-6px) scale(1.05);
