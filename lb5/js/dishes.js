@@ -28,6 +28,15 @@ const dishes = [
     image: "png/Vegetablesoup.jfif"
   },
   {
+  keyword: "tomato_soup",
+  name: "Tomato soup with basil",
+  price: 310,
+  category: "soup",
+  kind: "veg",
+  count: "330 g",
+  image: "png/tomato_soup.jfif"
+},
+  {
     keyword: "fish_soup",
     name: "Fish soup with vegetables",
     price: 370,
@@ -74,6 +83,16 @@ const dishes = [
     count: "390 g",
     image: "png/Vegetable.jfif"
   },
+  {
+  keyword: "cod_fillet",
+  name: "Cod fillet with vegetables",
+  price: 490,
+  category: "main",
+  kind: "fish",
+  count: "430 g",
+  image: "png/cod_fillet.jfif"
+},
+
   {
     keyword: "beef_steak",
     name: "Beef steak with sauce",
@@ -177,6 +196,15 @@ const dishes = [
     count: "250 ml",
     image: "png/hot_chocolate.jfif"
   },
+  {
+  keyword: "green_tea",
+  name: "Green tea",
+  price: 140,
+  category: "drink",
+  kind: "hot",
+  count: "250 ml",
+  image: "png/green_tea.jfif"
+},
 
   // ===== DESSERTS =====
   {
@@ -214,5 +242,42 @@ const dishes = [
     kind: "large",
     count: "350 g",
     image: "png/big_cake.jfif"
-  }
+  },
+  {
+  keyword: "tuna_salad",
+  name: "Tuna salad",
+  price: 370,
+  category: "salad",
+  kind: "fish",
+  count: "230 g",
+  image: "png/tuna_salad.jfif"
+},
+{
+  keyword: "grilled_veggies",
+  name: "Grilled vegetables starter",
+  price: 290,
+  category: "salad",
+  kind: "veg",
+  count: "210 g",
+  image: "png/grilled_veggies.jfif"
+},
+{
+  keyword: "ice_cream",
+  name: "Vanilla ice cream",
+  price: 190,
+  category: "dessert",
+  kind: "small",
+  count: "100 g",
+  image: "png/ice_cream.jfif"
+},
+{
+  keyword: "pancakes",
+  name: "Pancakes with berries",
+  price: 340,
+  category: "dessert",
+  kind: "large",
+  count: "300 g",
+  image: "png/pancakes.jfif"
+}
+
 ];
