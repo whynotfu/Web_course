@@ -34,7 +34,7 @@ const dishes = [
     category: "soup",
     kind: "fish",
     count: "360 g",
-    image: "png/fish_soup.jpg"
+    image: "png/fish_soup.jfif"
   },
   {
     keyword: "cream_mushroom_soup",
@@ -81,7 +81,7 @@ const dishes = [
     category: "main",
     kind: "meat",
     count: "450 g",
-    image: "png/beef_steak.jpg"
+    image: "png/beef_steak.jfif"
   },
   {
     keyword: "tofu_bowl",
@@ -90,7 +90,7 @@ const dishes = [
     category: "main",
     kind: "veg",
     count: "400 g",
-    image: "png/tofu_bowl.jpg"
+    image: "png/tofu_bowl.jfif"
   },
 
   // ===== SALADS & STARTERS =====
@@ -110,7 +110,7 @@ const dishes = [
     category: "salad",
     kind: "meat",
     count: "240 g",
-    image: "png/caesar.jpg"
+    image: "png/caesar.jfif"
   },
   {
     keyword: "avocado_salad",
@@ -119,7 +119,7 @@ const dishes = [
     category: "salad",
     kind: "veg",
     count: "210 g",
-    image: "png/avocado_salad.jpg"
+    image: "png/avocado_salad.jfif"
   },
   {
     keyword: "quinoa_salad",
@@ -128,7 +128,7 @@ const dishes = [
     category: "salad",
     kind: "veg",
     count: "230 g",
-    image: "png/quinoa_salad.jpg"
+    image: "png/quinoa_salad.jfif"
   },
 
   // ===== DRINKS =====
@@ -157,7 +157,7 @@ const dishes = [
     category: "drink",
     kind: "cold",
     count: "300 ml",
-    image: "png/iced_tea.jpg"
+    image: "png/iced_tea.jfif"
   },
   {
     keyword: "coffee",
@@ -175,7 +175,7 @@ const dishes = [
     category: "drink",
     kind: "hot",
     count: "250 ml",
-    image: "png/hot_chocolate.jpg"
+    image: "png/hot_chocolate.jfif"
   },
 
   // ===== DESSERTS =====
@@ -186,7 +186,7 @@ const dishes = [
     category: "dessert",
     kind: "small",
     count: "90 g",
-    image: "png/brownie.jpg"
+    image: "png/brownie.jfif"
   },
   {
     keyword: "cheesecake",
@@ -195,7 +195,7 @@ const dishes = [
     category: "dessert",
     kind: "medium",
     count: "120 g",
-    image: "png/cheesecake.jpg"
+    image: "png/cheesecake.jfif"
   },
   {
     keyword: "fruit_tart",
@@ -204,7 +204,7 @@ const dishes = [
     category: "dessert",
     kind: "medium",
     count: "140 g",
-    image: "png/fruit_tart.jpg"
+    image: "png/fruit_tart.jfif"
   },
   {
     keyword: "big_cake",
@@ -213,6 +213,6 @@ const dishes = [
     category: "dessert",
     kind: "large",
     count: "350 g",
-    image: "png/big_cake.jpg"
+    image: "png/big_cake.jfif"
   }
 ];
