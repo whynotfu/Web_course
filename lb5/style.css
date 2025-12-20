@@ -1,0 +1,153 @@
+/* ORDER FORM */
+
+.order-section {
+    max-width: 1100px;
+    margin: 3rem auto;
+    text-align: left;
+}
+
+.order-section h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.order-form {
+    margin-top: 1rem;
+}
+
+.order-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.order-block {
+    padding: 2rem;
+    border-radius: 30px;
+    background-color: #ffffff;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.08));
+}
+
+.order-block h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.order-field {
+    margin-bottom: 1rem;
+}
+
+.order-field label,
+.order-field legend {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+}
+
+.order-field input,
+.order-field select,
+.order-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
+    border: 1px solid #d0d0d0;
+    font: inherit;
+    background-color: #fafafa;
+}
+
+.order-field textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* чекбокс и радиокнопки */
+.order-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.order-checkbox input {
+    width: auto;
+}
+
+.order-radio legend {
+    margin-bottom: 0.5rem;
+}
+
+.delivery-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.delivery-options input {
+    width: auto;
+    margin-right: 0.3rem;
+}
+
+/* Кнопки */
+.order-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.order-buttons button {
+    padding: 0.7rem 1.8rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+.btn-reset {
+    background-color: #f1eee9;
+    color: #222222;
+}
+
+.btn-submit {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Hover эффект для кнопок */
+.btn-reset:hover {
+    background-color: #e4dfd5;
+}
+
+.btn-submit:hover {
+    background-color: #222222;
+}
+
+/* Адаптивность */
+@media (max-width: 800px) {
+    .order-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hidden { display: none; }
+.order-summary h3 { margin-top: 1rem; }
+.order-summary .empty { color: #777; }
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filters button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.filters button.active {
+  background: #000;
+  color: #fff;
+}
