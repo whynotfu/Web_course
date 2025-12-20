@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Food Construct — Собрать ланч</title>
+    <link rel="icon" type="image/x-icon" href="../lb1/png/favicon.ico">
+    <meta name="description" content="Lunch for everyone.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../lb2/style.css">
+    <link rel="stylesheet" href="../lb1/style.css">
+
+
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Food Construct</h1>
+        <nav>
+            <p><a href="../lb1/index.html">About</a></p>
+            <p><a id="active" href="lunch.html">Create an order</a></p>
+            <p><a href="order.html">Orders</a></p>
+            <p><a href="index.html#contacts">Contacts</a></p>
+        </nav>
+    </header>
+
+    <main>
+        <!-- С СУПАМИ -->
+        <section class="menu-section">
+            <h2>Soups</h2>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <img src="png/chickenSoop.jfif" alt="Chicken soup">
+                    <p class="dish-price">350 ₽</p>
+                    <p class="dish-name">Chicken soup with noodles</p>
+                    <p class="dish-weight">350 g</p>
+                    <button class="dish-add">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="png/borsh.jfif" alt="Borsh">
+                    <p class="dish-price">360 ₽</p>
+                    <p class="dish-name">Classic borsh with sour cream</p>
+                    <p class="dish-weight">380 g</p>
+                    <button class="dish-add">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="png/Vegetablesoup.jfif" alt="Vegetable soup">
+                    <p class="dish-price">320 ₽</p>
+                    <p class="dish-name">Vegetable soup with lentils and herbs</p>
+                    <p class="dish-weight">340 g</p>
+                    <button class="dish-add">Добавить</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- С ГОРЯЧИМИ БЛЮДАМИ -->
+        <section class="menu-section">
+            <h2>Main courses</h2>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <img src="png/Chickenrice.jfif" alt="Chicken with rice">
+                    <p class="dish-price">450 ₽</p>
+                    <p class="dish-name">Grilled chicken with vegetables and rice</p>
+                    <p class="dish-weight">420 g</p>
+                    <button class="dish-add">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="png/fish.jfif" alt="Fish">
+                    <p class="dish-price">480 ₽</p>
+                    <p class="dish-name">Baked salmon with potato puree</p>
+                    <p class="dish-weight">410 g</p>
+                    <button class="dish-add">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="png/Vegetable.jfif" alt="Vegetarian dish">
+                    <p class="dish-price">430 ₽</p>
+                    <p class="dish-name">Vegetable curry with chickpeas and rice</p>
+                    <p class="dish-weight">390 g</p>
+                    <button class="dish-add">Добавить</button>
+                </div>
+            </div>
+        </section>
+
+        <!--  НАПИТКАМИ -->
+        <section class="menu-section">
+            <h2>Drinks</h2>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <img src="png/Morse.jfif" alt="Morse">
+                    <p class="dish-price">120 ₽</p>
+                    <p class="dish-name">Homemade cranberry drink</p>
+                    <p class="dish-weight">300 ml</p>
+                    <button class="dish-add">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="png/lemonade.jfif" alt="Lemonade">
+                    <p class="dish-price">150 ₽</p>
+                    <p class="dish-name">Citrus lemonade with mint</p>
+                    <p class="dish-weight">300 ml</p>
+                    <button class="dish-add">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="png/Coffee.jfif" alt="Coffee">
+                    <p class="dish-price">160 ₽</p>
+                    <p class="dish-name">Americano with milk</p>
+                    <p class="dish-weight">250 ml</p>
+                    <button class="dish-add">Добавить</button>
+                </div>
+            </div>
+        </section>
+        <section class="order-section">
+    <h1>Create an order</h1>
+
+    <form class="order-form" action="https://httpbin.org/post" method="post">
+        <div class="order-columns">
+
+            <!-- Блок с заказом клиента -->
+            <h2>Your order</h2>
+                <div class="order-summary">
+                    <p class="empty">Nothing selected</p>
+                    <div class="category" data-category="soup">
+                        <h3>Soup</h3>
+                        <p class="value">Soup not selected</p>
+                    </div>
+                    <div class="category" data-category="main">
+                        <h3>Main course</h3>
+                        <p class="value">Main course not selected</p>
+                    </div>
+                    <div class="category" data-category="drink">
+                        <h3>Drink</h3>
+                        <p class="value">Drink not selected</p>
+                    </div>
+                    <div class="total hidden">
+                        <strong>Total:</strong> <span id="total-price">0</span> ₽
+                    </div>
+                </div>
+
+
+            <!-- Блок с данными клиента -->
+            <div class="order-block order-client">
+                <h2>Customer information</h2>
+
+                <div class="order-field">
+                    <label for="client-name">Name</label>
+                    <input id="client-name" name="client_name" type="text" required>
+                </div>
+
+                <div class="order-field">
+                    <label for="client-email">Email</label>
+                    <input id="client-email" name="client_email" type="email" required>
+                </div>
+
+                <div class="order-field order-checkbox">
+                    <input id="subscribe" name="subscribe" type="checkbox" checked>
+                    <label for="subscribe">I agree to receive information (newsletter)</label>
+                </div>
+
+                <div class="order-field">
+                    <label for="client-phone">Phone</label>
+                    <input id="client-phone" name="client_phone" type="tel" required>
+                </div>
+
+                <div class="order-field">
+                    <label for="client-address">Address</label>
+                    <input id="client-address" name="client_address" type="text" required>
+                </div>
+
+                <fieldset class="order-field order-radio">
+                    <legend>Delivery time</legend>
+                    <div class="delivery-options">
+                        <div>
+                            <input id="delivery-asap" name="delivery_option" type="radio" value="asap" required>
+                            <label for="delivery-asap">As soon as possible</label>
+                        </div>
+                        <div>
+                            <input id="delivery-exact" name="delivery_option" type="radio" value="exact">
+                            <label for="delivery-exact">At specified time</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="order-field">
+                    <label for="delivery-time">Specify delivery time</label>
+                    <input id="delivery-time"
+                           name="delivery_time"
+                           type="time"
+                           min="07:00"
+                           max="23:00"
+                           step="300">
+                </div>
+
+                <div class="order-buttons">
+                    <button type="reset" class="btn-reset">Reset</button>
+                    <button type="submit" class="btn-submit">Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</section>
+    </main>
+
+    <footer>
+        <p>whynotfu <a href="tel:+3283948284829">+3283948284829</a></p>
+    </footer>
+    <script src="js/dishes.js"></script>
+    <script src="js/renderDishes.js"></script>
+    <script src="js/order.js"></script>
+</body>
+</html>
