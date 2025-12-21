@@ -12,11 +12,13 @@ const API_URL =
 let dishes = [];
 const CATEGORY_MAP = {
   soup: "soup",
-  main_course: "main_course",
+  "main-course": "main",   // ← ВОТ ОНО
   salad: "salad",
   drink: "drink",
   dessert: "dessert"
 };
+
+
 /* =========================
    LOAD DISHES FROM API
    ========================= */
@@ -48,7 +50,9 @@ function renderAllCategories() {
     dessert: document.querySelector('.menu-section[data-category="dessert"] .dishes-grid')
   };
 
-  Object.values(grids).forEach(grid => grid.innerHTML = "");
+  Object.values(grids).forEach(grid => {
+  if (grid) grid.innerHTML = "";
+  });
 
   dishes
     .slice()
@@ -107,9 +111,9 @@ function renderCategory(category, kind = null) {
   grid.innerHTML = "";
 
   dishes
-    .filter(d => d.category === category)
-    
-    .filter(d => !kind || !d.kind || d.kind === kind)
+    .filter(d => CATEGORY_MAP[d.category] === category)
+
+    .filter(d => !kind || d.kind === kind || d.kind == null)
     .sort((a, b) => a.name.localeCompare(b.name))
     .forEach(dish => {
       const card = document.createElement("div");
