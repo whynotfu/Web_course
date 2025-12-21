@@ -120,7 +120,7 @@ function getComboErrorText(chosen) {
 
   const names = {
     soup: "soup",
-    main: "main dish",
+    main: "main course",
     salad: "salad",
     drink: "drink"
   };

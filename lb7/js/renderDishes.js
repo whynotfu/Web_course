@@ -1,8 +1,22 @@
-const API_KEY = "4733eaf4-4488-484d-bab6-70863c53ffc9";
-const API_URL = `https://edu.std-900.ist.mospolytech.ru/labs/api/dishes?api_key=${API_KEY}`;
+const LOCAL_API =
+  "http://lab7-api.std-900.ist.mospolytech.ru/api/dishes?api_key=4733eaf4-4488-484d-bab6-70863c53ffc9";
+
+const PUBLIC_API =
+  "https://edu.std-900.ist.mospolytech.ru/labs/api/dishes";
+
+const API_URL =
+  location.hostname.includes("github.io")
+    ? PUBLIC_API
+    : LOCAL_API;
 
 let dishes = [];
-
+const CATEGORY_MAP = {
+  soup: "soup",
+  main_course: "main",
+  salad: "salad",
+  drink: "drink",
+  dessert: "dessert"
+};
 /* =========================
    LOAD DISHES FROM API
    ========================= */
@@ -40,7 +54,8 @@ function renderAllCategories() {
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name))
     .forEach(dish => {
-      const grid = grids[dish.category];
+      const normalizedCategory = CATEGORY_MAP[dish.category];
+      const grid = grids[normalizedCategory];
       if (!grid) return;
 
       const card = document.createElement("div");
