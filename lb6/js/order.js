@@ -1,5 +1,28 @@
-const selected = { soup: null, main: null, drink: null };
+/* =========================
+   ORDER LOGIC (COMBO ONLY)
+   ========================= */
 
+/* выбранные блюда */
+const selected = {
+  soup: null,
+  main: null,
+  salad: null,
+  drink: null,
+  dessert: null
+};
+
+/* доступные комбо */
+const lunchCombos = [
+  ["soup", "main", "salad", "drink"],
+  ["soup", "main", "drink"],
+  ["soup", "salad", "drink"],
+  ["main", "salad", "drink"],
+  ["main", "drink"]
+];
+
+/* =========================
+   ADD DISH
+   ========================= */
 document.addEventListener("click", (e) => {
   const btn = e.target.closest(".dish-add");
   if (!btn) return;
@@ -8,8 +31,6 @@ document.addEventListener("click", (e) => {
   if (!card) return;
 
   const keyword = card.dataset.dish;
-  if (!keyword) return;
-
   const dish = dishes.find(d => d.keyword === keyword);
   if (!dish) return;
 
@@ -17,88 +38,119 @@ document.addEventListener("click", (e) => {
   renderOrder();
 });
 
+/* =========================
+   RENDER ORDER SUMMARY
+   ========================= */
 function renderOrder() {
   const emptyText = document.querySelector(".order-summary .empty");
   const totalBlock = document.querySelector(".order-summary .total");
   const totalPriceEl = document.getElementById("total-price");
 
   let total = 0;
-  let any = false;
+  let anySelected = false;
 
   for (const [category, dish] of Object.entries(selected)) {
-    const block = document.querySelector(`.order-summary .category[data-category="${category}"]`);
+    const block = document.querySelector(
+      `.order-summary .category[data-category="${category}"]`
+    );
+    if (!block) continue;
+
     const value = block.querySelector(".value");
 
     if (dish) {
       value.textContent = `${dish.name} — ${dish.price} ₽`;
       total += dish.price;
-      any = true;
+      anySelected = true;
     } else {
-      value.textContent =
-        category === "soup" ? "Soup not selected" :
-        category === "main" ? "Main course not selected" :
-        "Drink not selected";
+      const emptyTextMap = {
+        soup: "Soup not selected",
+        main: "Main course not selected",
+        salad: "Salad / starter not selected",
+        drink: "Drink not selected",
+        dessert: "Dessert not selected"
+      };
+      value.textContent = emptyTextMap[category];
     }
   }
 
-  emptyText.style.display = any ? "none" : "block";
+  emptyText.style.display = anySelected ? "none" : "block";
 
-  if (any) {
+  if (anySelected) {
     totalBlock.classList.remove("hidden");
-    totalPriceEl.textContent = String(total);
+    totalPriceEl.textContent = total;
   } else {
     totalBlock.classList.add("hidden");
     totalPriceEl.textContent = "0";
   }
 }
 
-const lunchCombos = [
-  ["soup", "main", "salad", "drink"],
-  ["soup", "main", "drink"],
-  ["soup", "salad", "drink"],
-  ["main", "salad", "drink"],
-  ["main", "drink"]
-];
-document.querySelector("form").addEventListener("submit", (e) => {
-  const chosen = Object.entries(selected)
-    .filter(([, v]) => v)
-    .map(([k]) => k);
+/* =========================
+   COMBO VALIDATION HELPERS
+   ========================= */
 
-  if (!isValidLunch(chosen)) {
+/* что выбрано (десерт не участвует) */
+function getChosenCategories() {
+  return Object.entries(selected)
+    .filter(([key, value]) => value && key !== "dessert")
+    .map(([key]) => key);
+}
+
+/* ближайшее комбо (минимум недостающих позиций) */
+function findClosestCombo(chosen) {
+  let best = null;
+
+  for (const combo of lunchCombos) {
+    const missing = combo.filter(item => !chosen.includes(item));
+
+    if (!best || missing.length < best.missing.length) {
+      best = { combo, missing };
+    }
+  }
+
+  return best;
+}
+
+/* текст для поп-апа */
+function getComboErrorText(chosen) {
+  if (chosen.length === 0) {
+    return "Вы ничего не выбрали";
+  }
+
+  const { missing } = findClosestCombo(chosen);
+
+  const names = {
+    soup: "суп",
+    main: "главное блюдо",
+    salad: "салат / стартер",
+    drink: "напиток"
+  };
+
+  if (missing.length === 1) {
+    return `Вы не выбрали ${names[missing[0]]} для комбо`;
+  }
+
+  return "Выберите блюда для комбо";
+}
+
+/* =========================
+   FORM SUBMIT
+   ========================= */
+document.querySelector("form").addEventListener("submit", (e) => {
+  const chosen = getChosenCategories();
+
+  const isValid = lunchCombos.some(combo =>
+    combo.every(item => chosen.includes(item))
+  );
+
+  if (!isValid) {
     e.preventDefault();
-    showNotification(getNotificationText(chosen));
+    showNotification(getComboErrorText(chosen));
   }
 });
 
-function isValidLunch(chosen) {
-  return lunchCombos.some(combo =>
-    combo.every(item => chosen.includes(item))
-  );
-}
-function getNotificationText(chosen) {
-  if (chosen.length === 0)
-    return "Nothing selected. Choose dishes to order";
-
-  if (!chosen.includes("drink") &&
-      (chosen.includes("soup") || chosen.includes("main")))
-    return "Choose a drink";
-
-  if (chosen.includes("soup") &&
-      !chosen.includes("main") &&
-      !chosen.includes("salad"))
-    return "Choose main course or salad/starter";
-
-  if (chosen.includes("salad") &&
-      !chosen.includes("soup") &&
-      !chosen.includes("main"))
-    return "Choose soup or main course";
-
-  if (chosen.includes("drink") &&
-      !chosen.includes("main"))
-    return "Choose main course";
-
-  return "Choose missing dishes";
-}
+/* =========================
+   POP-UP (UI)
+   ========================= */
 function showNotification(text) {
   const overlay = document.createElement("div");
   overlay.className = "notification-overlay";
@@ -106,7 +158,7 @@ function showNotification(text) {
   overlay.innerHTML = `
     <div class="notification">
       <p>${text}</p>
-      <button class="ok-btn">OK</button>
+      <button class="ok-btn">Окей 👌</button>
     </div>
   `;
 
