@@ -1,72 +1,90 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // контейнеры для категорий
-const grids = {
-  soup: document.querySelector('.menu-section[data-category="soup"] .dishes-grid'),
-  main: document.querySelector('.menu-section[data-category="main"] .dishes-grid'),
-  salad: document.querySelector('.menu-section[data-category="salad"] .dishes-grid'),
-  drink: document.querySelector('.menu-section[data-category="drink"] .dishes-grid'),
-  dessert: document.querySelector('.menu-section[data-category="dessert"] .dishes-grid'),
-};
+const API_URL = "https://edu.std-900.ist.mospolytech.ru/labs/api/dishes";
+const API_KEY = "4733eaf4-4488-484d-bab6-70863c53ffc9";
 
+let dishes = [];
 
-  // проверка и очистка
-  for (const key of Object.keys(grids)) {
-    if (!grids[key]) {
-      throw new Error(`Нет контейнера для категории: ${key}`);
-    }
-    grids[key].innerHTML = "";
-  }
+/* =========================
+   LOAD DISHES FROM API
+   ========================= */
+async function loadDishes() {
+  try {
+    const response = await fetch(API_URL, {
+      headers: {
+        "X-API-KEY": API_KEY
+      }
+    });
 
-  // сортировка по алфавиту
-  const sorted = [...dishes].sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
-
-  // рендер карточек
-  for (const dish of sorted) {
-    const card = document.createElement("div");
-    card.className = "dish-card";
-    card.dataset.dish = dish.keyword;
-
-    card.innerHTML = `
-      <img src="${dish.image}" alt="${dish.name}">
-      <p class="dish-price">${dish.price} ₽</p>
-      <p class="dish-name">${dish.name}</p>
-      <p class="dish-weight">${dish.count}</p>
-      <button class="dish-add" type="button">Добавить</button>
-    `;
-
-    // защита от неправильной категории
-    if (!grids[dish.category]) {
-      console.warn("Неизвестная категория:", dish.category, dish);
-      continue;
+    if (!response.ok) {
+      throw new Error("Ошибка загрузки блюд");
     }
 
-    grids[dish.category].appendChild(card);
+    dishes = await response.json();
+    renderAllCategories();
+  } catch (err) {
+    console.error(err);
+    alert("Не удалось загрузить меню");
   }
-});
+}
 
+/* =========================
+   INITIAL RENDER
+   ========================= */
+function renderAllCategories() {
+  const grids = {
+    soup: document.querySelector('.menu-section[data-category="soup"] .dishes-grid'),
+    main: document.querySelector('.menu-section[data-category="main"] .dishes-grid'),
+    salad: document.querySelector('.menu-section[data-category="salad"] .dishes-grid'),
+    drink: document.querySelector('.menu-section[data-category="drink"] .dishes-grid'),
+    dessert: document.querySelector('.menu-section[data-category="dessert"] .dishes-grid')
+  };
 
+  Object.values(grids).forEach(grid => grid.innerHTML = "");
+
+  dishes
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .forEach(dish => {
+      const grid = grids[dish.category];
+      if (!grid) return;
+
+      const card = document.createElement("div");
+      card.className = "dish-card";
+      card.dataset.dish = dish.keyword;
+
+      card.innerHTML = `
+        <img src="${dish.image}" alt="${dish.name}">
+        <p class="dish-price">${dish.price} ₽</p>
+        <p class="dish-name">${dish.name}</p>
+        <p class="dish-weight">${dish.count}</p>
+        <button class="dish-add" type="button">Добавить</button>
+      `;
+
+      grid.appendChild(card);
+    });
+}
+
+/* =========================
+   FILTERS
+   ========================= */
 document.addEventListener("click", (e) => {
-  const filterBtn = e.target.closest(".filters button");
-  if (!filterBtn) return;
+  const btn = e.target.closest(".filters button");
+  if (!btn) return;
 
-  const section = filterBtn.closest(".menu-section");
+  const section = btn.closest(".menu-section");
   const category = section.dataset.category;
-  const kind = filterBtn.dataset.kind;
+  const kind = btn.dataset.kind;
 
-  const isActive = filterBtn.classList.contains("active");
+  const active = btn.classList.contains("active");
 
-  // сброс всех фильтров в секции
   section.querySelectorAll(".filters button")
     .forEach(b => b.classList.remove("active"));
 
-  if (isActive) {
+  if (active) {
     renderCategory(category);
     return;
   }
 
-  filterBtn.classList.add("active");
+  btn.classList.add("active");
   renderCategory(category, kind);
 });
 
@@ -97,3 +115,8 @@ function renderCategory(category, kind = null) {
       grid.appendChild(card);
     });
 }
+
+/* =========================
+   BOOTSTRAP
+   ========================= */
+document.addEventListener("DOMContentLoaded", loadDishes);
