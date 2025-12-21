@@ -119,17 +119,17 @@ function getComboErrorText(chosen) {
   const { missing } = findClosestCombo(chosen);
 
   const names = {
-    soup: "суп",
-    main: "главное блюдо",
-    salad: "салат / стартер",
-    drink: "напиток"
+    soup: "soup",
+    main: "main dish",
+    salad: "salad",
+    drink: "drink"
   };
 
   if (missing.length === 1) {
-    return `Вы не выбрали ${names[missing[0]]} для комбо`;
+    return `You have not choose ${names[missing[0]]} for combo`;
   }
 
-  return "Выберите блюда для комбо";
+  return "Choose dish for combo";
 }
 
 /* =========================

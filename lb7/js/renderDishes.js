@@ -1,5 +1,5 @@
-const API_URL = "https://edu.std-900.ist.mospolytech.ru/labs/api/dishes";
 const API_KEY = "4733eaf4-4488-484d-bab6-70863c53ffc9";
+const API_URL = `https://edu.std-900.ist.mospolytech.ru/labs/api/dishes?api_key=${API_KEY}`;
 
 let dishes = [];
 
@@ -8,11 +8,7 @@ let dishes = [];
    ========================= */
 async function loadDishes() {
   try {
-    const response = await fetch(API_URL, {
-      headers: {
-        "X-API-KEY": API_KEY
-      }
-    });
+    const response = await fetch(API_URL);
 
     if (!response.ok) {
       throw new Error("Ошибка загрузки блюд");
