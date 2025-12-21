@@ -12,7 +12,7 @@ const API_URL =
 let dishes = [];
 const CATEGORY_MAP = {
   soup: "soup",
-  main_course: "main",
+  main_course: "main_course",
   salad: "salad",
   drink: "drink",
   dessert: "dessert"
@@ -108,7 +108,8 @@ function renderCategory(category, kind = null) {
 
   dishes
     .filter(d => d.category === category)
-    .filter(d => !kind || d.kind === kind)
+    
+    .filter(d => !kind || !d.kind || d.kind === kind)
     .sort((a, b) => a.name.localeCompare(b.name))
     .forEach(dish => {
       const card = document.createElement("div");
