@@ -1,47 +1,24 @@
-const LOCAL_API =
-  "http://lab7-api.std-900.ist.mospolytech.ru/api/dishes?api_key=4733eaf4-4488-484d-bab6-70863c53ffc9";
+// Публичное API возвращает id, локальное - нет
+const API_URL = "https://edu.std-900.ist.mospolytech.ru/labs/api/dishes";
 
-const PUBLIC_API =
-  "https://edu.std-900.ist.mospolytech.ru/labs/api/dishes";
+window.dishes = [];
 
-const API_URL =
-  location.hostname.includes("github.io")
-    ? PUBLIC_API
-    : LOCAL_API;
-
-let dishes = [];
-const CATEGORY_MAP = {
-  soup: "soup",
-  "main-course": "main",   // ← ВОТ ОНО
-  salad: "salad",
-  drink: "drink",
-  dessert: "dessert"
-};
-
-
-/* =========================
-   LOAD DISHES FROM API
-   ========================= */
-async function loadDishes() {
+// Загрузка блюд при загрузке страницы
+document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch(API_URL);
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error("Ошибка загрузки меню");
 
-    if (!response.ok) {
-      throw new Error("Ошибка загрузки блюд");
-    }
-
-    dishes = await response.json();
-    renderAllCategories();
-  } catch (err) {
-    console.error(err);
-    alert("Не удалось загрузить меню");
+    window.dishes = await res.json();
+    renderMenu();
+    window.dispatchEvent(new Event("dishes-loaded"));
+  } catch (e) {
+    alert("Не удалось загрузить меню: " + e.message);
   }
-}
+});
 
-/* =========================
-   INITIAL RENDER
-   ========================= */
-function renderAllCategories() {
+// Рендер всего меню
+function renderMenu() {
   const grids = {
     soup: document.querySelector('.menu-section[data-category="soup"] .dishes-grid'),
     main: document.querySelector('.menu-section[data-category="main"] .dishes-grid'),
@@ -50,21 +27,26 @@ function renderAllCategories() {
     dessert: document.querySelector('.menu-section[data-category="dessert"] .dishes-grid')
   };
 
-  Object.values(grids).forEach(grid => {
-  if (grid) grid.innerHTML = "";
-  });
+  // Если нет гридов - мы не на странице меню
+  const hasGrids = Object.values(grids).some(g => g);
+  if (!hasGrids) return;
 
-  dishes
-    .slice()
+  // Очищаем грды
+  Object.values(grids).forEach(g => { if (g) g.innerHTML = ""; });
+
+  // Рендерим блюда
+  window.dishes
     .sort((a, b) => a.name.localeCompare(b.name))
     .forEach(dish => {
-      const normalizedCategory = CATEGORY_MAP[dish.category];
-      const grid = grids[normalizedCategory];
+      const category = dish.category === "main-course" ? "main" : dish.category;
+      const grid = grids[category];
       if (!grid) return;
 
       const card = document.createElement("div");
       card.className = "dish-card";
-      card.dataset.dish = dish.keyword;
+      card.dataset.id = dish.id;
+      card.dataset.keyword = dish.keyword;
+      card.dataset.category = dish.category;
 
       card.innerHTML = `
         <img src="${dish.image}" alt="${dish.name}">
@@ -78,47 +60,48 @@ function renderAllCategories() {
     });
 }
 
-/* =========================
-   FILTERS
-   ========================= */
+// Фильтры
 document.addEventListener("click", (e) => {
   const btn = e.target.closest(".filters button");
   if (!btn) return;
 
   const section = btn.closest(".menu-section");
-  const category = section.dataset.category;
+  const categoryAttr = section.dataset.category;
   const kind = btn.dataset.kind;
 
-  const active = btn.classList.contains("active");
+  // Переключаем активность
+  const wasActive = btn.classList.contains("active");
+  section.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
 
-  section.querySelectorAll(".filters button")
-    .forEach(b => b.classList.remove("active"));
-
-  if (active) {
-    renderCategory(category);
-    return;
+  if (wasActive) {
+    // Сбросили фильтр - показываем все
+    renderCategory(categoryAttr, null);
+  } else {
+    // Включили фильтр
+    btn.classList.add("active");
+    renderCategory(categoryAttr, kind);
   }
-
-  btn.classList.add("active");
-  renderCategory(category, kind);
 });
 
-function renderCategory(category, kind = null) {
-  const grid = document.querySelector(
-    `.menu-section[data-category="${category}"] .dishes-grid`
-  );
+function renderCategory(categoryAttr, kind) {
+  const grid = document.querySelector(`.menu-section[data-category="${categoryAttr}"] .dishes-grid`);
+  if (!grid) return;
 
   grid.innerHTML = "";
 
-  dishes
-    .filter(d => CATEGORY_MAP[d.category] === category)
-
-    .filter(d => !kind || d.kind === kind || d.kind == null)
+  window.dishes
+    .filter(d => {
+      const cat = d.category === "main-course" ? "main" : d.category;
+      return cat === categoryAttr;
+    })
+    .filter(d => !kind || d.kind === kind)
     .sort((a, b) => a.name.localeCompare(b.name))
     .forEach(dish => {
       const card = document.createElement("div");
       card.className = "dish-card";
-      card.dataset.dish = dish.keyword;
+      card.dataset.id = dish.id;
+      card.dataset.keyword = dish.keyword;
+      card.dataset.category = dish.category;
 
       card.innerHTML = `
         <img src="${dish.image}" alt="${dish.name}">
@@ -131,8 +114,3 @@ function renderCategory(category, kind = null) {
       grid.appendChild(card);
     });
 }
-
-/* =========================
-   BOOTSTRAP
-   ========================= */
-document.addEventListener("DOMContentLoaded", loadDishes);

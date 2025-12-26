@@ -1,27 +1,24 @@
-const STORAGE_KEY = "lunch_order";
+// Получить заказ из localStorage
+window.getOrder = function () {
+  const data = localStorage.getItem("lunch_order");
+  return data ? JSON.parse(data) : {};
+};
 
-export function getOrder() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-    soup: null,
-    main_course: null,
-    salad: null,
-    drink: null,
-    dessert: null
-  };
-}
-
-export function setDish(category, id) {
-  const order = getOrder();
+// Добавить блюдо в заказ (сохраняем id)
+window.setDish = function (category, id) {
+  const order = window.getOrder();
   order[category] = id;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(order));
-}
+  localStorage.setItem("lunch_order", JSON.stringify(order));
+};
 
-export function removeDish(category) {
-  const order = getOrder();
-  order[category] = null;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(order));
-}
+// Удалить блюдо из заказа
+window.removeDish = function (category) {
+  const order = window.getOrder();
+  delete order[category];
+  localStorage.setItem("lunch_order", JSON.stringify(order));
+};
 
-export function clearOrder() {
-  localStorage.removeItem(STORAGE_KEY);
-}
+// Очистить весь заказ
+window.clearOrder = function () {
+  localStorage.removeItem("lunch_order");
+};

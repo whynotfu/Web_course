@@ -24,8 +24,8 @@
         <h1>Food Construct</h1>
         <nav>
             <p><a href=#about>About</a></p>
-            <p><a href=""> Create an order</a></p>
-            <p><a href="#order">Orders</a></p>
+            <p><a href=""> Menu</a></p>
+            <p><a href="order.html">Create an order</a></p>
             <p><a href="#contacts"> Contacts </a></p>
         </nav>
     </header>
@@ -168,92 +168,23 @@
   <p class="dessert-note">
     Desserts can be added to any lunch option
   </p>
-    </div>
 </section>
 
-<!-- ===== CREATE AN ORDER ===== -->
-<section id="order" class="order-section">
-  <form class="order-columns" action="https://httpbin.org/post" method="post">
-    <!-- YOUR ORDER -->
-    <div class="order-block order-items">
-      <h2>Your order</h2>
-
-      <div class="order-summary">
-        <p class="empty">Nothing selected</p>
-
-        <div class="category" data-category="soup">
-          <h3>Soup</h3>
-          <p class="value">Soup not selected</p>
-        </div>
-
-        <div class="category" data-category="main">
-          <h3>Main course</h3>
-          <p class="value">Main course not selected</p>
-        </div>
-
-        <div class="category" data-category="salad">
-          <h3>Salad / Starter</h3>
-          <p class="value">Salad not selected</p>
-        </div>
-
-        <div class="category" data-category="drink">
-          <h3>Drink</h3>
-          <p class="value">Drink not selected</p>
-        </div>
-
-        <div class="category" data-category="dessert">
-          <h3>Dessert</h3>
-          <p class="value">Dessert not selected</p>
-        </div>
-
-        <div class="total hidden">
-          <strong>Total:</strong> <span id="total-price">0</span> ₽
-        </div>
-      </div>
-    </div>
-
-    <!-- CUSTOMER INFO -->
-    <div class="order-block order-client">
-      <h2>Customer information</h2>
-
-      <div class="order-field">
-        <label for="name">Name</label>
-        <input id="name" type="text">
-      </div>
-
-      <div class="order-field">
-        <label for="email">Email</label>
-        <input id="email" type="email">
-      </div>
-
-      <div class="order-field order-checkbox">
-        <input id="newsletter" type="checkbox">
-        <label for="newsletter">I agree to receive information (newsletter)</label>
-      </div>
-
-      <div class="order-field">
-        <label for="phone">Phone</label>
-        <input id="phone" type="tel">
-      </div>
-
-      <div class="order-field">
-        <label for="address">Address</label>
-        <input id="address" type="text">
-      </div>
-
-      <div class="order-buttons">
-        <button type="reset" class="btn-reset">Reset</button>
-        <button type="submit" class="btn-submit">Submit</button>
-      </div>
-    </div>
-  </form>
-</section>
+<div class="checkout-panel hidden">
+  <span class="checkout-total">0 ₽</span>
+  <a href="order.html" class="checkout-link disabled">
+    Перейти к оформлению
+  </a>
+</div>
     </main>
 
     <footer>
         <p>whynotfu <a href="tel:+3283948284829">+3283948284829</a></p>
     </footer>
-    <script src="js/renderDishes.js"></script>
-    <script src="js/order.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/renderDishes.js"></script>
+<script src="js/order.js"></script>
+
+
 </body>
 </html>
