@@ -31,7 +31,55 @@
     </header>
 
     <main>
-      <section class="lunch-options">
+       <section class="menu-section" data-category="soup">
+          <h2>Soups</h2>
+            <div class="filters">
+                <button data-kind="fish">Fish</button>
+                <button data-kind="meat">Meat</button>
+                <button data-kind="veg">Vegetarian</button>
+            </div>
+            <div class="dishes-grid"></div>
+        </section>
+       <section class="menu-section" data-category="main">
+        <h2>Main courses</h2>
+            <div class="filters">
+            <button data-kind="fish">Fish</button>
+            <button data-kind="meat">Meat</button>
+            <button data-kind="veg">Vegetarian</button>
+        </div>
+        <div class="dishes-grid"></div>
+</section>
+        <section class="menu-section" data-category="drink">
+  <h2>Drinks</h2>
+
+  <div class="filters">
+    <button data-kind="cold">Cold</button>
+    <button data-kind="hot">Hot</button>
+  </div>
+
+  <div class="dishes-grid"></div>
+</section>
+
+        <section class="menu-section" data-category="salad">
+            <h2>Salads & Starters</h2>
+            <div class="filters">
+                <button data-kind="fish">Fish</button>
+                <button data-kind="meat">Meat</button>
+                <button data-kind="veg">Vegetarian</button>
+            </div>
+            <div class="dishes-grid"></div>
+        </section>
+        <section class="menu-section" data-category="dessert">
+            <h2>Desserts</h2>
+            <div class="filters">
+                <button data-kind="small">Small</button>
+                <button data-kind="medium">Medium</button>
+                <button data-kind="large">Large</button>
+            </div>
+            <div class="dishes-grid"></div>
+        </section>
+
+       <section class="lunch-options">
          <div class="lunch-container"></div>
   <h2>Available lunch options</h2>
 
@@ -121,55 +169,6 @@
     Desserts can be added to any lunch option
   </p>
 </section>
-       <section class="menu-section" data-category="soup">
-          <h2>Soups</h2>
-            <div class="filters">
-                <button data-kind="fish">Fish</button>
-                <button data-kind="meat">Meat</button>
-                <button data-kind="veg">Vegetarian</button>
-            </div>
-            <div class="dishes-grid"></div>
-        </section>
-       <section class="menu-section" data-category="main">
-        <h2>Main courses</h2>
-            <div class="filters">
-            <button data-kind="fish">Fish</button>
-            <button data-kind="meat">Meat</button>
-            <button data-kind="veg">Vegetarian</button>
-        </div>
-        <div class="dishes-grid"></div>
-</section>
-        <section class="menu-section" data-category="drink">
-  <h2>Drinks</h2>
-
-  <div class="filters">
-    <button data-kind="cold">Cold</button>
-    <button data-kind="hot">Hot</button>
-  </div>
-
-  <div class="dishes-grid"></div>
-</section>
-
-        <section class="menu-section" data-category="salad">
-            <h2>Salads & Starters</h2>
-            <div class="filters">
-                <button data-kind="fish">Fish</button>
-                <button data-kind="meat">Meat</button>
-                <button data-kind="veg">Vegetarian</button>
-            </div>
-            <div class="dishes-grid"></div>
-        </section>
-        <section class="menu-section" data-category="dessert">
-            <h2>Desserts</h2>
-            <div class="filters">
-                <button data-kind="small">Small</button>
-                <button data-kind="medium">Medium</button>
-                <button data-kind="large">Large</button>
-            </div>
-            <div class="dishes-grid"></div>
-        </section>
-
-       
 
 <div class="checkout-panel hidden">
   <span class="checkout-total">0 ₽</span>
