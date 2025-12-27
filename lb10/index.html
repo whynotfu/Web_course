@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Food Construct — Конструктор обедов</title>
+    <link rel="icon" type="image/x-icon" href="../lb1/png/favicon.ico">
+    <meta name="description" content="Food Construct — сервис доставки индивидуальных обедов. Собери свой идеальный ланч!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="../lb1/style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="landing-page">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="#">Food Construct</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Преимущества</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lunch.html">Меню</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="about">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6 order-lg-1 order-2">
+                    <h1 class="hero-title display-3 fw-bold mb-4">
+                        Собери свой <span class="text-accent">идеальный</span> обед
+                    </h1>
+                    <p class="hero-description lead mb-4">
+                        Food Construct — это сервис доставки, где вы сами выбираете состав вашего ланча.
+                        Свежие ингредиенты, разнообразное меню и быстрая доставка прямо к вам!
+                    </p>
+                    <a href="lunch.html" class="btn btn-dark btn-lg rounded-pill px-5 py-3">
+                        Собрать ланч →
+                    </a>
+                </div>
+                <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0">
+                    <div class="hero-image-wrapper">
+                        <img src="static/png/main.png" alt="Вкусный обед" class="hero-image img-fluid">
+                        <div class="hero-decoration hero-decoration-1"></div>
+                        <div class="hero-decoration hero-decoration-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section py-5" id="features">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="section-title fw-bold mb-3">Почему выбирают нас</h2>
+                    <p class="section-subtitle text-muted">Мы заботимся о качестве вашего обеда</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Feature 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M4.186 4.186A2.5 2.5 0 0 1 6.5 3H14a2.5 2.5 0 0 1 0 5H6.5a2.5 2.5 0 0 1-2.314-1.557A2.5 2.5 0 0 1 2 9.5 2.5 2.5 0 0 1 4.186 12H14a.5.5 0 0 1 0 1H4.186A3.5 3.5 0 0 1 1 9.5a3.5 3.5 0 0 1 1.186-2.621A3.5 3.5 0 0 1 6.5 2H14a3.5 3.5 0 0 1 0 7H6.5a3.5 3.5 0 0 1-2.314-6.814Z"/>
+                            </svg>
+                        </div>
+                        <h5 class="fw-bold">Конструктор блюд</h5>
+                        <p class="text-muted mb-0">
+                            Выбирайте суп, основное блюдо, салат и напиток на свой вкус
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M6.5 0a.5.5 0 0 1 .5.5V3h2V.5a.5.5 0 0 1 1 0V3h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM5 4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5z"/>
+                                <path d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                            </svg>
+                        </div>
+                        <h5 class="fw-bold">Свежие продукты</h5>
+                        <p class="text-muted mb-0">
+                            Только качественные ингредиенты от проверенных поставщиков
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                            </svg>
+                        </div>
+                        <h5 class="fw-bold">Быстрая доставка</h5>
+                        <p class="text-muted mb-0">
+                            Доставим ваш заказ в течение 30-60 минут
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                            </svg>
+                        </div>
+                        <h5 class="fw-bold">Для всех диет</h5>
+                        <p class="text-muted mb-0">
+                            Вегетарианские, рыбные и мясные блюда на выбор
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview Section -->
+    <section class="menu-preview-section py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="section-title fw-bold mb-3">Наше меню</h2>
+                    <p class="section-subtitle text-muted">Разнообразие блюд для вашего идеального обеда</p>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="menu-item-card text-center p-3">
+                        <img src="static/png/soup.png" alt="Супы" class="menu-item-img mb-3">
+                        <h6 class="fw-bold mb-0">Супы</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="menu-item-card text-center p-3">
+                        <img src="static/png/main.png" alt="Основные блюда" class="menu-item-img mb-3">
+                        <h6 class="fw-bold mb-0">Основные</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="menu-item-card text-center p-3">
+                        <img src="static/png/salad.png" alt="Салаты" class="menu-item-img mb-3">
+                        <h6 class="fw-bold mb-0">Салаты</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="menu-item-card text-center p-3">
+                        <img src="static/png/drink.png" alt="Напитки" class="menu-item-img mb-3">
+                        <h6 class="fw-bold mb-0">Напитки</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="menu-item-card text-center p-3">
+                        <img src="static/png/desert.png" alt="Десерты" class="menu-item-img mb-3">
+                        <h6 class="fw-bold mb-0">Десерты</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cta-card text-center p-5 rounded-4">
+                        <h2 class="fw-bold text-white mb-3">Готовы попробовать?</h2>
+                        <p class="text-white-50 mb-4 lead">
+                            Соберите свой первый ланч прямо сейчас и оцените качество нашей кухни!
+                        </p>
+                        <a href="lunch.html" class="btn btn-light btn-lg rounded-pill px-5 py-3">
+                            Собрать ланч →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section py-5" id="contact">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="section-title fw-bold mb-3">Свяжитесь с нами</h2>
+                    <p class="section-subtitle text-muted">Оставьте заявку и мы перезвоним вам</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <!-- Contact Form -->
+                        <div class="col-md-7">
+                            <div class="contact-form-card p-4 rounded-4 h-100">
+                                <h5 class="fw-bold mb-4">Форма обратной связи</h5>
+                                <form id="contactForm">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Ваше имя</label>
+                                        <input type="text" class="form-control rounded-3" id="name" name="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control rounded-3" id="email" name="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Телефон</label>
+                                        <input type="tel" class="form-control rounded-3" id="phone" name="phone">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="message" class="form-label">Сообщение</label>
+                                        <textarea class="form-control rounded-3" id="message" name="message" rows="4" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-dark rounded-pill px-4 py-2 w-100">
+                                        Отправить
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Contact Info -->
+                        <div class="col-md-5">
+                            <div class="contact-info-card p-4 rounded-4 h-100">
+                                <h5 class="fw-bold mb-4">Контактная информация</h5>
+                                <div class="contact-item mb-3">
+                                    <span class="contact-icon me-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <strong>Адрес</strong>
+                                        <p class="mb-0 text-muted">г. Москва, ул. Примерная, 123</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item mb-3">
+                                    <span class="contact-icon me-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <strong>Телефон</strong>
+                                        <p class="mb-0">
+                                            <a href="tel:+3283948284829" class="text-muted">+3 283 948 284 829</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="contact-item mb-3">
+                                    <span class="contact-icon me-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <strong>Email</strong>
+                                        <p class="mb-0">
+                                            <a href="mailto:info@foodconstruct.ru" class="text-muted">info@foodconstruct.ru</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon me-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <strong>Режим работы</strong>
+                                        <p class="mb-0 text-muted">Пн-Вс: 10:00 - 22:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <span class="text-white">Food Construct</span>
+                    <a href="tel:+3283948284829" class="text-white ms-3">+3 283 948 284 829</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="lunch.html" class="text-white me-3">Меню</a>
+                    <a href="order.html" class="text-white me-3">Заказ</a>
+                    <a href="orders.html" class="text-white">Заказы</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Contact Form Handler -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

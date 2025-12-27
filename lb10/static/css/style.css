@@ -1,3 +1,244 @@
+/* ============================================
+   LANDING PAGE STYLES
+   ============================================ */
+
+.landing-page {
+    margin-top: 0;
+}
+
+/* Hero Section */
+.hero-section {
+    padding-top: 80px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+
+.hero-title {
+    line-height: 1.2;
+}
+
+.text-accent {
+    color: #a73ea7;
+}
+
+.hero-description {
+    color: #555;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero-decoration {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.hero-decoration-1 {
+    width: 300px;
+    height: 300px;
+    background: rgba(167, 62, 167, 0.1);
+    top: -50px;
+    right: -50px;
+}
+
+.hero-decoration-2 {
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.05);
+    bottom: -30px;
+    left: -30px;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Features Section */
+.features-section {
+    background: #fff;
+}
+
+.section-title {
+    font-size: 2.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+}
+
+.feature-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 50%;
+    color: #a73ea7;
+}
+
+/* Menu Preview Section */
+.menu-preview-section {
+    background: #f8f9fa;
+}
+
+.menu-item-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.menu-item-card:hover {
+    transform: scale(1.05);
+}
+
+.menu-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* CTA Section */
+.cta-section {
+    background: #fff;
+}
+
+.cta-card {
+    background: linear-gradient(135deg, #000 0%, #333 100%);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Contact Section */
+.contact-section {
+    background: #f8f9fa;
+}
+
+.contact-form-card {
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info-card {
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-item i,
+.contact-icon {
+    color: #a73ea7;
+}
+
+.contact-icon svg {
+    fill: #a73ea7;
+}
+
+/* Landing Footer */
+.landing-footer {
+    background-color: #000;
+}
+
+.landing-footer a:hover {
+    color: #a73ea7 !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-section {
+        padding-top: 100px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-image {
+        max-width: 300px;
+    }
+
+    .hero-decoration-1 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero-decoration-2 {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: auto;
+        padding-bottom: 3rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .hero-description {
+        text-align: center;
+    }
+
+    .hero-section .btn {
+        display: block;
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .cta-card {
+        padding: 2rem !important;
+    }
+}
+
+/* ============================================
+   END LANDING PAGE STYLES
+   ============================================ */
+
 /* ORDER FORM */
 
 .order-section {

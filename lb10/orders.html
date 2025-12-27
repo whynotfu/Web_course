@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Food Construct — История заказов</title>
+    <link rel="icon" type="image/x-icon" href="../lb1/png/favicon.ico">
+    <meta name="description" content="Lunch for everyone.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="../lb2/style.css">
+    <link rel="stylesheet" href="../lb1/style.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Food Construct</h1>
+        <nav>
+            <p><a href="index.html">About</a></p>
+            <p><a href="lunch.html">Menu</a></p>
+            <p><a href="order.html">Create an order</a></p>
+            <p><a href="orders.html">Orders</a></p>
+            <p><a href="#contacts">Contacts</a></p>
+        </nav>
+    </header>
+
+    <main>
+        <section class="orders-section">
+            <h2>История заказов</h2>
+            <div class="orders-list">
+                <p class="loading-message">Загрузка заказов...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно: Подробнее -->
+    <div class="modal-overlay hidden" id="modal-details">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <h3>Просмотр заказа</h3>
+            <div class="modal-content">
+                <div class="detail-row"><strong>Дата оформления:</strong> <span id="detail-date"></span></div>
+                <div class="detail-row"><strong>Имя:</strong> <span id="detail-name"></span></div>
+                <div class="detail-row"><strong>Email:</strong> <span id="detail-email"></span></div>
+                <div class="detail-row"><strong>Телефон:</strong> <span id="detail-phone"></span></div>
+                <div class="detail-row"><strong>Адрес доставки:</strong> <span id="detail-address"></span></div>
+                <div class="detail-row"><strong>Время доставки:</strong> <span id="detail-delivery"></span></div>
+                <div class="detail-row"><strong>Состав заказа:</strong> <span id="detail-dishes"></span></div>
+                <div class="detail-row"><strong>Стоимость:</strong> <span id="detail-price"></span></div>
+                <div class="detail-row"><strong>Комментарий:</strong> <span id="detail-comment"></span></div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-ok">Ок</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Редактирование -->
+    <div class="modal-overlay hidden" id="modal-edit">
+        <div class="modal modal-wide">
+            <button class="modal-close">&times;</button>
+            <h3>Редактирование заказа</h3>
+            <form id="edit-form">
+                <input type="hidden" id="edit-id">
+
+                <div class="order-field">
+                    <label for="edit-name">Имя *</label>
+                    <input id="edit-name" name="full_name" type="text" required>
+                </div>
+
+                <div class="order-field">
+                    <label for="edit-email">Email *</label>
+                    <input id="edit-email" name="email" type="email" required>
+                </div>
+
+                <div class="order-field">
+                    <label for="edit-phone">Телефон *</label>
+                    <input id="edit-phone" name="phone" type="tel" required>
+                </div>
+
+                <div class="order-field">
+                    <label for="edit-address">Адрес доставки *</label>
+                    <input id="edit-address" name="delivery_address" type="text" required>
+                </div>
+
+                <div class="order-field order-radio">
+                    <legend>Время доставки</legend>
+                    <div class="delivery-options">
+                        <label>
+                            <input type="radio" name="delivery_type" value="now" id="edit-delivery-now">
+                            Как можно скорее
+                        </label>
+                        <label>
+                            <input type="radio" name="delivery_type" value="by_time" id="edit-delivery-time">
+                            К указанному времени
+                        </label>
+                    </div>
+                </div>
+
+                <div class="order-field">
+                    <label for="edit-time">Время (если выбрано "К указанному времени")</label>
+                    <input id="edit-time" name="delivery_time" type="time" min="07:00" max="23:00" step="300">
+                </div>
+
+                <div class="order-field">
+                    <label for="edit-comment">Комментарий к заказу</label>
+                    <textarea id="edit-comment" name="comment"></textarea>
+                </div>
+
+                <div class="modal-buttons">
+                    <button type="button" class="btn-cancel">Отмена</button>
+                    <button type="submit" class="btn-save">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Удаление -->
+    <div class="modal-overlay hidden" id="modal-delete">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <h3>Подтверждение удаления</h3>
+            <div class="modal-content">
+                <p>Вы уверены, что хотите удалить заказ?</p>
+                <input type="hidden" id="delete-id">
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-cancel">Отмена</button>
+                <button class="btn-confirm-delete">Да</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Уведомления -->
+    <div class="toast hidden" id="toast">
+        <span class="toast-message"></span>
+    </div>
+
+    <footer>
+        <p>whynotfu <a href="tel:+3283948284829">+3283948284829</a></p>
+    </footer>
+
+    <script src="static/js/orders.js"></script>
+</body>
+</html>
