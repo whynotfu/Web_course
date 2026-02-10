@@ -8,7 +8,7 @@
 7. [Узнай, кто занял второе место!](web-services-design/hw1/second_score.py)
 8. [Вложенные списки](web-services-design/hw1/nested_list.py)
 9. [Cписки](web-services-design/hw1/list.py)
-10. [Пример обмена](web-services-design/hw1/ swap_case.py)
+10. [Пример обмена](web-services-design/hw1/swap_case.py)
 11. [Разделение и объединение строк](web-services-design/hw1/split_and_join.py)
 12. [Поиск слова максимальной длины](web-services-design/hw1/max_word.py)
 13. [Агрегирование данных](web-services-design/hw1/price_sum.py) 

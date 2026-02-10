@@ -18,15 +18,23 @@ def run_script(filename, input_data=None):
 
 test_data = {
     'python_if_else': [
-        ('1', 'Weird'),
+        ('1', 'Weird'),       
+        ('2', 'Not Weird'),    
         ('4', 'Not Weird'),
-        ('3', 'Weird'),
+        ('5', 'Weird'),        
         ('6','Weird'),
-        ('22', 'Not Weird')
+        ('20','Weird'),        
+        ('21','Weird'),        
+        ('22', 'Not Weird'),  
+        ('100','Not Weird'),
+        ('101', 'Weird'),    
     ],
     'arithmetic_operators': [
         (['1', '2'], ['3', '-1', '2']),
-        (['10', '5'], ['15', '5', '50'])
+        (['10', '5'], ['15', '5', '50']),
+        (['10000000000', '1'], ['10000000001', '9999999999', '10000000000']),
+        (['0', '5'], ['5', '-5', '0']),
+        (['-3', '4'], ['1', '-7', '-12']),
     ],
     'division': [
         (['3', '5'], ['0', '0.6']),
@@ -34,7 +42,8 @@ test_data = {
         (['-7', '3'], ['-3', '-2.3333333333333335']),
         (['7', '-3'], ['-3', '-2.3333333333333335']),
         (['-7', '-3'], ['2', '2.3333333333333335']),
-        
+        (['0', '5'], ['0', '0.0']),
+        (['5', '0'], ['division by zero']),
     ],
     'loops': [
         ('1', ['0']),
@@ -42,7 +51,22 @@ test_data = {
         ('3', ['0', '1', '4']),
         ('5', ['0', '1', '4', '9', '16']),
         ('20', [str(i * i) for i in range(20)]),
-    ]
+        ('20', [str(i * i) for i in range(20)]),
+    ],
+     'print_function': [
+        ('1', '1'),
+        ('2', '12'),
+        ('5', '12345'),
+        ('10', '12345678910'),
+        ('20', ''.join(str(i) for i in range(1, 21))),
+    ],
+    'second_score': [
+        (['5', '2 3 6 6 5'], '5'),        
+        (['4', '1 2 3 4'], '3'),          
+        (['6', '10 10 9 8 8 7'], '9'),    
+        (['3', '5 5 4'], '4'),            
+        (['5', '-1 -2 -3 -4 -5'], '-2'),  
+    ],
 }
 
 def test_hello_world():
@@ -63,3 +87,9 @@ def test_division(input_data, expected):
 @pytest.mark.parametrize("input_data, expected", test_data['loops'])
 def test_loops(input_data, expected):
     assert run_script('loops.py', [input_data]).split('\n') == expected
+
+@pytest.mark.parametrize("input_data, expected", test_data['print_function'])
+def test_print_function(input_data, expected):
+    assert run_script('print_function.py', [input_data]) == expected
+
+
