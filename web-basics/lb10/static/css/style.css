@@ -1,12 +1,9 @@
-/* ============================================
-   LANDING PAGE STYLES
-   ============================================ */
 
 .landing-page {
     margin-top: 0;
 }
 
-/* Hero Section */
+
 .hero-section {
     padding-top: 80px;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -235,11 +232,7 @@
     }
 }
 
-/* ============================================
-   END LANDING PAGE STYLES
-   ============================================ */
 
-/* ORDER FORM */
 
 .order-section {
     max-width: 1100px;
@@ -302,7 +295,7 @@
     min-height: 120px;
 }
 
-/* чекбокс и радиокнопки */
+
 .order-checkbox {
     display: flex;
     align-items: center;
@@ -328,7 +321,6 @@
     margin-right: 0.3rem;
 }
 
-/* Кнопки */
 .order-buttons {
     margin-top: 1.5rem;
     display: flex;
@@ -363,7 +355,7 @@
     background-color: #222222;
 }
 
-/* Адаптивность */
+
 @media (max-width: 800px) {
     .order-columns {
         grid-template-columns: 1fr;
