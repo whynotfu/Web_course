@@ -1,3 +1,9 @@
-number = int(input())
-for i in range(0, number):
-    print(i**2)
+try:
+    n = int(input())
+    if not (1 <= n <= 20):
+        raise ValueError
+except:
+    print("ERROR")
+    exit()
+for i in range(n):
+    print(i * i)
