@@ -1,4 +1,4 @@
-В данной работе необходимо было продемонстрировать базовые знания языка python.
+В первой работе необходимо было продемонстрировать базовые знания языка python.
 1. [Hello World](web-services-design/hw1/hello.py)
 2. [Python If-Else](web-services-design/hw1/python_if_else.py)
 3. [Арифметические операторы](web-services-design/hw1/arithmetic_operators.py)
