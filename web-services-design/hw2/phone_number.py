@@ -1,6 +1,13 @@
+def format_phone(number):
+    digits = ''.join(c for c in number if c.isdigit())
+    if len(digits) == 11:
+        digits = digits[1:]
+    return f'+7 ({digits[:3]}) {digits[3:6]}-{digits[6:8]}-{digits[8:10]}'
+
 def wrapper(f):
     def fun(l):
-        # complete the function
+        formatted = [format_phone(num) for num in l]
+        return f(formatted)
     return fun
 
 @wrapper

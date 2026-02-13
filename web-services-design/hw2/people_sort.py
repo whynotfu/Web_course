@@ -2,7 +2,7 @@ import operator
 
 def person_lister(f):
     def inner(people):
-        # complete the function
+        return [f(person) for person in sorted(people, key=lambda p: int(p[2]))]
     return inner
 
 @person_lister

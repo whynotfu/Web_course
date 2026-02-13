@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(python -m pytest:*)",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "Bash(\"c:\\\\Users\\\\nasty\\\\Desktop\\\\вэб1\\\\web-services-design\\\\hw2\\\\ve\\\\Scripts\\\\pip.exe\" install pytest)",
+      "Bash(\"c:\\\\Users\\\\nasty\\\\Desktop\\\\вэб1\\\\web-services-design\\\\hw2\\\\ve\\\\Scripts\\\\python.exe\" -m pytest \"c:\\\\Users\\\\nasty\\\\Desktop\\\\вэб1\\\\web-services-design\\\\hw2\\\\test.py\" -v)"
     ]
   }
 }
