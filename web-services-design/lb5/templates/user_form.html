@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{#
+  Макрос для общих полей формы (используется и при создании, и при редактировании).
+  Параметры:
+    fd     — form_data (dict)
+    errors — dict с ошибками
+    roles  — список ролей из БД
+#}
+{% macro common_fields(fd, errors, roles) %}
+<div class="mb-3">
+    <label for="last_name" class="form-label">Фамилия <span class="text-danger">*</span></label>
+    <input type="text"
+           id="last_name" name="last_name"
+           class="form-control {% if errors.get('last_name') %}is-invalid{% endif %}"
+           value="{{ fd.get('last_name') or '' }}">
+    {% if errors.get('last_name') %}
+        <div class="invalid-feedback">{{ errors.last_name }}</div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    <label for="first_name" class="form-label">Имя <span class="text-danger">*</span></label>
+    <input type="text"
+           id="first_name" name="first_name"
+           class="form-control {% if errors.get('first_name') %}is-invalid{% endif %}"
+           value="{{ fd.get('first_name') or '' }}">
+    {% if errors.get('first_name') %}
+        <div class="invalid-feedback">{{ errors.first_name }}</div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    <label for="middle_name" class="form-label">Отчество</label>
+    <input type="text"
+           id="middle_name" name="middle_name"
+           class="form-control"
+           value="{{ fd.get('middle_name') or '' }}">
+</div>
+
+<div class="mb-3">
+    <label for="role_id" class="form-label">Роль</label>
+    <select id="role_id" name="role_id"
+            class="form-select"
+            {% if is_edit and not current_user.is_admin %}disabled{% endif %}>
+        <option value="" {% if not fd.get('role_id') %}selected{% endif %}>— Без роли —</option>
+        {% for role in roles %}
+            <option value="{{ role.id }}"
+                {% if fd.get('role_id') | string == role.id | string %}selected{% endif %}>
+                {{ role.name }}
+            </option>
+        {% endfor %}
+    </select>
+    {% if is_edit and not current_user.is_admin %}
+        <div class="form-text text-muted">Изменение роли доступно только администратору.</div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+
+{% block content %}
+<h1 class="mb-4">{{ title }}</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+
+            {% if not is_edit %}
+            {# Поля только для создания #}
+            <div class="mb-3">
+                <label for="login" class="form-label">Логин <span class="text-danger">*</span></label>
+                <input type="text"
+                       id="login" name="login"
+                       class="form-control {% if errors.get('login') %}is-invalid{% endif %}"
+                       value="{{ form_data.get('login') or '' }}">
+                {% if errors.get('login') %}
+                    <div class="invalid-feedback">{{ errors.login }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Пароль <span class="text-danger">*</span></label>
+                <input type="password"
+                       id="password" name="password"
+                       class="form-control {% if errors.get('password') %}is-invalid{% endif %}">
+                {% if errors.get('password') %}
+                    <div class="invalid-feedback">{{ errors.password }}</div>
+                {% endif %}
+                <div class="form-text">
+                    Минимум 8 символов, заглавная и строчная буква, цифра, без пробелов.
+                </div>
+            </div>
+            {% endif %}
+
+            {# Общие поля через макрос #}
+            {{ common_fields(form_data, errors, roles) }}
+
+            <div class="d-flex gap-2 mt-3">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

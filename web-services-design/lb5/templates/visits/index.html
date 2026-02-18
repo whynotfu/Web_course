@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Журнал посещений</h1>
+    {% if current_user.is_admin %}
+    <div class="d-flex gap-2">
+        <a href="{{ url_for('visits.pages_report') }}" class="btn btn-outline-secondary">
+            Отчёт по страницам
+        </a>
+        <a href="{{ url_for('visits.users_report') }}" class="btn btn-outline-secondary">
+            Отчёт по пользователям
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+<table class="table table-bordered table-striped align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th style="width:60px">#</th>
+            <th>Пользователь</th>
+            <th>Страница</th>
+            <th>Дата</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for log in logs %}
+        <tr>
+            <td>{{ (page - 1) * 10 + loop.index }}</td>
+            <td>{{ user_label(log) }}</td>
+            <td>{{ log.path }}</td>
+            <td>{{ log.created_at_fmt }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4" class="text-center text-muted">Записей нет.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{# Пагинация #}
+{% if pages > 1 %}
+<nav>
+    <ul class="pagination">
+        <li class="page-item {% if page == 1 %}disabled{% endif %}">
+            <a class="page-link" href="?page={{ page - 1 }}">&#8592;</a>
+        </li>
+        {% for p in range(1, pages + 1) %}
+            {% if p == page %}
+            <li class="page-item active">
+                <span class="page-link">{{ p }}</span>
+            </li>
+            {% elif p == 1 or p == pages or (p >= page - 2 and p <= page + 2) %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+            </li>
+            {% elif p == page - 3 or p == page + 3 %}
+            <li class="page-item disabled"><span class="page-link">…</span></li>
+            {% endif %}
+        {% endfor %}
+        <li class="page-item {% if page == pages %}disabled{% endif %}">
+            <a class="page-link" href="?page={{ page + 1 }}">&#8594;</a>
+        </li>
+    </ul>
+</nav>
+{% endif %}
+
+<p class="text-muted">Всего записей: {{ total }}</p>
+{% endblock %}
